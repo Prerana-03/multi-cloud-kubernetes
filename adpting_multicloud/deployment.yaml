@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: multi-cloud-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: multi-cloud
+  template:
+    metadata:
+      labels:
+        app: multi-cloud
+    spec:
+      containers:
+      - name: multi-cloud-container
+        image: multi-cloud-app:latest
+        ports:
+        - containerPort: 5000
